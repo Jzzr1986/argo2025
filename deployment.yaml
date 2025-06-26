@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvn888
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mvn888
+  template:
+    metadata:
+      labels:
+        app: mvn888
+    spec:
+      containers:
+      - name: mvn888
+        image: mvn888
+        ports:
+        - containerPort: 8989
