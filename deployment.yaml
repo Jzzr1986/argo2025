@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mvn888
+  name: openjdk-deployment
+  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mvn888
+      app: openjdk
   template:
     metadata:
       labels:
-        app: mvn888
+        app: openjdk
     spec:
       containers:
-      - name: mvn888
-        image: mvn888
+      - name: openjdk-container
+        image: openjdk:21-jdk-slim
         ports:
-        - containerPort: 8989
+        - containerPort: 8989  # 假设应用监听 8080 端口（按需修改）
+        command: ["sleep", "infinity"]  # 保持容器运行（仅测试用）
